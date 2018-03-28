@@ -8,7 +8,6 @@
 </head>
 <body>
     
-
 <div id="wrapper">
 
     <header>
@@ -16,11 +15,22 @@
     </header>
     
     <main>
+
+        Profile
+
+        Username
+
+        Age
+
+        Gender
+
+        City 
+
+        About
       
     </main>
 
 </div>
-
 
 </body>
 </html>

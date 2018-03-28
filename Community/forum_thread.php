@@ -16,6 +16,12 @@
     
     <main>
       
+        Forum > Title 
+
+        Post
+
+        Replys
+
     </main>
 
 </div>

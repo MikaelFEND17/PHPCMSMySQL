@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Community - Forum - New Thread</title>
+    <title>Community - Blog - New Post</title>
 </head>
 <body>
 
@@ -24,6 +24,10 @@
             <br>
             <textarea id="textarea-message"></textarea>
             <br>
+            
+            <label for="category">Category: </label><br> Add Category
+            <label for="tags">Tags: </label><br>
+            <label for="comments">Disable Comments: </label><br>
             <br>
             <button type="submit" form="form-login">Start Thread</button>
         </form>
@@ -32,7 +36,5 @@
 
 </div>
 
-
-    
 </body>
 </html>

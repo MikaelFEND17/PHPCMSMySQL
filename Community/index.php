@@ -11,13 +11,16 @@
 <div id="wrapper">
 
     <header>
+        <h1>Community</h1>
     </header>
     
     <main>
+        Login:
         <form id="form-login" action="/login.php" method="post">
             <label for="input-username">Username: </label>
             <br>
-            <input id="input-username" type="text" name="username" value="" placeholder="Username"><br>
+            <input id="input-username" type="text" name="username" value="" placeholder="Username">
+            <br>
             <label for="input-password">Password: </label>
             <br>
             <input id="input-password" type="password" name="password" value="" placeholder="Password">
@@ -29,8 +32,6 @@
     </main>
 
 </div>
-
-
     
 </body>
 </html>

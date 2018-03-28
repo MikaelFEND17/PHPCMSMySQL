@@ -7,6 +7,23 @@
     <title>Community - Blog</title>
 </head>
 <body>
+
+<div id="wrapper">
+
+    <header>
+        <h1>Community</h1>
+    </header>
+    
+    <main>
+
+        Post
+
+        Comments
+      
+    </main>
+
+</div>
+
     
 </body>
 </html>
