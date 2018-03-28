@@ -16,6 +16,19 @@
     
     <main>
 
+        <form id="form-login" action="/placeholder.php" method="post">
+            <label for="input-title">Title: </label>
+            <br>
+            <input id="input-title" type="text" name="title" value="" placeholder="Title">
+            <br>
+            <label for="textarea-message">Message: </label>
+            <br>
+            <textarea id="textarea-message"></textarea>
+            <br>
+            <br>
+            <button type="submit" form="form-login">Start Thread</button>
+        </form>
+
     </main>
 
 </div>

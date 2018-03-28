@@ -16,17 +16,23 @@
     
     <main>
 
-        Profile
 
-        Username
+        <?php 
+      
 
-        Age
+            //Profile
 
-        Gender
+            //Username
 
-        City 
+            //Age
 
-        About
+            //Gender
+
+            //City 
+
+            //About
+
+        ?>
       
     </main>
 

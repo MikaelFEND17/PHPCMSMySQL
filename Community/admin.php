@@ -16,9 +16,9 @@
     
     <main>
 
-        Manage Users
-
         New News Post
+
+        Manage Users
 
     </main>
 
