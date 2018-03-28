@@ -11,16 +11,18 @@
 <div id="wrapper">
 
     <header>
+        <h1>Community</h1>
     </header>
     
     <main>
-        <form id="form-login" action="/login.php" method="post">
-            <label for="input-username">Username: </label>
+        <form id="form-login" action="/placeholder.php" method="post">
+            <label for="input-title">Title: </label>
             <br>
-            <input id="input-username" type="text" name="username" value="" placeholder="Username"><br>
-            <label for="input-password">Password: </label>
+            <input id="input-title" type="text" name="title" value="" placeholder="Title">
             <br>
-            <input id="input-password" type="password" name="password" value="" placeholder="Password">
+            <label for="textarea-message">Message: </label>
+            <br>
+            <textarea id="textarea-message"></textarea>
             <br>
             <br>
             <button type="submit" form="form-login">Login</button>
