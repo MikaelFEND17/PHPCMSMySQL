@@ -20,6 +20,11 @@
     </header>
     
     <main>
+
+        <form action="POST">
+            <label for="profile-username">Username:</label>
+            <input id="profile-username" type="text" name="username" value="" disabled>
+        </form>
       
     </main>
 

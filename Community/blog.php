@@ -20,6 +20,16 @@
     
     <main>
 
+        <?php
+
+            //Om postID är definerad
+            //Skriv ut post + kommentar
+
+
+            //Annars Skriv ut alla poster
+
+        ?>
+
         Post
 
         Comments

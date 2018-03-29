@@ -20,21 +20,24 @@
     
     <main>
 
-
         <?php 
-      
 
             //Profile
 
             //Username
+            echo "LOL";
 
             //Age
+            echo "LOL";
 
             //Gender
+            echo "LOL";
 
             //City 
+            echo "LOL";
 
             //About
+            echo "LOL";
 
         ?>
       

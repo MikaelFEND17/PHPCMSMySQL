@@ -24,7 +24,14 @@
 
         Post
 
-        Replys
+        Replies
+
+        
+        <?php 
+
+            //Loop
+
+        ?>
 
     </main>
 

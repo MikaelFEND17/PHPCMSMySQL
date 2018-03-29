@@ -24,6 +24,12 @@
         <br>
         Category - Num Threads - Last Post - Posted By - Time <br> 
 
+        <?php 
+
+            //Loop
+
+        ?>
+
     </main>
 
 </div>
