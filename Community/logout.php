@@ -1,5 +1,6 @@
 <?php
+session_start();
+session_destroy();
 
-    //Log out
-
+header("location: index.php");
 ?>

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +19,11 @@
     </header>
     
     <main>
-      
+
+        Forum<br>
+        <br>
+        Category - Num Threads - Last Post - Posted By - Time <br> 
+
     </main>
 
 </div>

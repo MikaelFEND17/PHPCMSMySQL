@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +30,7 @@
             <input id="input-password" type="password" name="password" value="" placeholder="Password">
             <br>
             <br>
-            <button type="submit" form="form-login">Login</button>
+            <button type="submit" form="form-login" name="btn-login">Login</button>
         </form>
 
     </main>
