@@ -1,33 +1,7 @@
 <?php
 session_start();
 
-include_once 'classes/blog.php';
-
-if (isset($_POST['btn-submit-post']))
-{ 
-    $title = trim($_POST['title']);
-    $message = trim($_POST['message']);
-
-    $error = array();
-
-    if ($title == "")
-    {
-        array_push($error, "You must enter a title.");
-    }
-    else if (strlen($title) < 5)
-    {
-        array_push($error, "Username must be at least 5 characters.");
-    }
-
-    if ($message == "")
-    {
-        array_push($error, "You must enter a message.");
-    }
-    else if (strlen($message) < 5)
-    {
-        array_push($error, "Message must be at least 5 characters long.");
-    }
-}
+include_once 'classes/forum.php';
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +10,7 @@ if (isset($_POST['btn-submit-post']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Community - Blog - New Post</title>
+    <title>Community - Forum - New Thread</title>
 </head>
 <body>
 
@@ -44,8 +18,8 @@ if (isset($_POST['btn-submit-post']))
 
     <header>
         <h1>Community</h1>
-    </header>
-
+    </header>    
+    
     <nav>
         <ul>
             <li>
@@ -80,26 +54,34 @@ if (isset($_POST['btn-submit-post']))
     </nav>
     
     <main>
-        <form id="form-login" method="post">
+        <form id="form-forum-thread" action="placeholder.php" method="post">
             <label for="input-title">Title: </label>
             <br>
             <input id="input-title" type="text" name="title" value="" placeholder="Title">
             <br>
             <label for="textarea-message">Message: </label>
             <br>
-            <textarea id="textarea-message" name="message"></textarea>
+            <textarea id="textarea-message"></textarea>
             <br>
-            
-            <label for="category">Category: </label><br> Add Category
-            <label for="tags">Tags: </label><br>
-            <label for="comments">Disable Comments: </label><br>
             <br>
-            <button type="submit" form="form-login" name="btn-submit-post">Post Entry</button>
+            <button type="submit" form="form-forum-thread">Start Thread</button>
         </form>
+
+        <form id="form-forum-reply" action="placeholder.php" method="post">
+            <label for="textarea-message">Message: </label>
+            <br>
+            <textarea id="textarea-message"></textarea>
+            <br>
+            <br>
+            <button type="submit" form="form-forum-reply">Post Reply</button>
+        </form>
+
 
     </main>
 
 </div>
 
+
+    
 </body>
 </html>

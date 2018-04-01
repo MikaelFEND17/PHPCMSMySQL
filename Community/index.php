@@ -1,5 +1,9 @@
 <?php
-    session_start();
+session_start();
+
+include_once 'class/user.php';
+
+$user = new User($database_connection);
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Community</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 
@@ -18,20 +23,60 @@
         <h1>Community</h1>
     </header>
     
+    <nav>
+        <ul>
+        <li>
+            <a href="index.php">Home</a>
+        </li>
+        <li>
+            <a href="news.php">News</a>
+        </li>
+        <li>
+            <a href="blog.php">Blog</a>
+        </li>
+        <li>
+            <a href="forum.php">Forum</a>
+        </li>
+        <?php
+        if ($user->is_loggedin())
+        {
+        ?>
+        <li>
+            <a href="logout.php">Log out</a>
+        </li>
+         <?php
+        }
+        else
+        {
+        ?>
+            <li><a href="login.php">Log in</a> / <a href="register.php">Register</a></li>
+        <?php
+        }
+        ?>
+        </ul>
+    </nav>
+
     <main>
-        Login:
-        <form id="form-login" action="/login.php" method="post">
-            <label for="input-username">Username: </label>
-            <br>
-            <input id="input-username" type="text" name="username" value="" placeholder="Username">
-            <br>
-            <label for="input-password">Password: </label>
-            <br>
-            <input id="input-password" type="password" name="password" value="" placeholder="Password">
-            <br>
-            <br>
-            <button type="submit" form="form-login" name="btn-login">Login</button>
-        </form>
+
+        <?php
+            if ($user->is_loggedin())
+            {
+        ?>
+        
+                Welcome username.<br>
+                What do you want to do today.
+        
+        <?php
+            }
+            else
+            {
+        ?>
+                Welcome to our site, either <a href="login.php">login</a> or <a href="register.php">register</a>.
+        <?php
+            }
+        ?>
+
+        
 
     </main>
 

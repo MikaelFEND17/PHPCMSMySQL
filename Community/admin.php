@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Community - Admin</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 
@@ -20,9 +21,27 @@
     
     <main>
 
-        New News Post
+        <?php
+        if (isset($_GET['action']) && ($_GET['action'] == 'list_users'))
+        {
+        ?>
 
-        Manage Users
+
+            Username
+            Edit
+            Delete
+
+        <?php
+        }
+        else
+        {
+        ?>
+            <a hred="news.php?action=new">New News Post</a>
+            <br>
+            <a href="?action=list_users">List Users</a>
+        <?php
+        }
+        ?>
 
     </main>
 
