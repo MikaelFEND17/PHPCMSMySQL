@@ -101,14 +101,16 @@ if (isset($_POST['btn-login']))
                 <button type="submit" form="form-login" name="btn-login">Login</button>
             </form> 
             <br>
-            Don't have an account? <a href="register.php">Register here</a>
+            Don't have an account? <a href="register.php">Register here</a>. Forgot password? <a href="login.php">Click here</a>
         
         <?php
             }
             else
             {
         ?>
-                You are already logged in.
+                You are already logged in.<br>
+                <br>
+                <a href="javascript:history.back();">Go Back</a>
         <?php
             }
         ?>

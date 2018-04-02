@@ -4,6 +4,8 @@ session_start();
 include_once 'class/user.php';
     
 $user = new User($database_connection);
+
+//Check if admin here...
 ?>
 
 <!DOCTYPE html>
@@ -57,9 +59,10 @@ $user = new User($database_connection);
     </nav>
     
     <main>
-        <div>
-            <h3>ADMINISTRATION</h3>
-        </div>
+        <div id="admin-wrapper">
+            <div id="admin-header">
+                <h3>ADMINISTRATION</h3>
+            </div>
 
         <?php
         if (isset($_GET['action']) && ($_GET['action'] == 'list_users'))
@@ -76,7 +79,14 @@ $user = new User($database_connection);
                 <div><strong>Edit</strong></div> 
                 <div><strong>Ban</strong></div> 
             </div>
+            
+            <?php 
 
+            ?>
+
+                <div>
+
+                </div>
 
         <?php
         }
@@ -116,7 +126,7 @@ $user = new User($database_connection);
         //Things to add?
         // Num on News
         ?>
-
+        </div>
     </main>
 
 </div>

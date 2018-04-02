@@ -48,6 +48,10 @@
 * Accept Friends
 * Friends List
 
+#Message
+* Send Message On Link
+* Only recieved messages from friends
+
 ___
 
 # HTML
