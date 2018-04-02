@@ -58,26 +58,25 @@ $user = new User($database_connection);
     
     <main>
         <div>
-            Administration
+            <h3>ADMINISTRATION</h3>
         </div>
 
         <?php
         if (isset($_GET['action']) && ($_GET['action'] == 'list_users'))
         {
         ?>
-            <form>
+            <div>
                 <div>
-                    <div>
-                        <h4>Users</h4>
-                    </div>
+                    <h4>Users</h4>
                 </div>
+            </div>
 
-                <div> 
-                    <div><strong>Username</strong></div>
-                    <div><strong>Edit</strong></div> 
-                    <div><strong>Ban</strong></div> 
-                </div>
-            </form>
+            <div> 
+                <div><strong>Username</strong></div>
+                <div><strong>Edit</strong></div> 
+                <div><strong>Ban</strong></div> 
+            </div>
+
 
         <?php
         }

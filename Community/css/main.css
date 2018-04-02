@@ -33,6 +33,24 @@
     width: 25em;
     height: 10em; }
 
+#blogs-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 50%;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+#blogs-header {
+  width: 100%; }
+
+.blog-post {
+  width: 100%;
+  margin-top: 1em; }
+
 html {
   width: 100%; }
 

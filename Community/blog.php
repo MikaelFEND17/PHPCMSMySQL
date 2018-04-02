@@ -119,16 +119,15 @@ $blog = new Blog($database_connection);
         else
         {
 
-
         ?>
-            <div>
-                <div>
-                    <h3>Blogs</h3>
+            <div id="blogs-wrapper">
+                <div id="blogs-header">
+                    <h3>BLOGS</h3>
                 </div>
                 <div>
                     <a href="blog_post.php">New Post</a>
                 </div>
-                <div>
+                <div class="blog-post">
                     <div>
                         By User: 
                     </div>

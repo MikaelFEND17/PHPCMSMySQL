@@ -63,12 +63,12 @@ $user = new User($database_connection);
             {
 
                 $user_id = $_SESSION['user_session'];
-                $statement = $database_connection->prepare("SELECT * FROM users WHERE user_id=:user_id");
-                $statement->execute(array(":user_id"=>$user_id));
-                $userRow = $statementstmt->fetch(PDO::FETCH_ASSOC);
+                $statement = $database_connection->prepare("SELECT * FROM users WHERE id=:id");
+                $statement->execute(array(":id"=>$user_id));
+                $userRow = $statement->fetch(PDO::FETCH_ASSOC);
         ?>
         
-                Welcome <?=$userRow['user_name'];?>.<br>
+                Welcome <?=$userRow['username'];?>.<br>
                 What do you want to do today.
         
         <?php
