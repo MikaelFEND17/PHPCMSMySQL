@@ -1,5 +1,7 @@
 <?php
-    session_start();
+session_start();
+    
+include_once 'class/user.php';
 ?>
 
 <!DOCTYPE html>

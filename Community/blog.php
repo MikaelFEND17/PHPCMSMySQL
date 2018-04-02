@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-include_once 'classes/blog.php';
+include_once 'class/user.php';
+include_once 'class/blog.php';
+
+$user = new User($database_connection);
 ?>
 
 <!DOCTYPE html>
@@ -61,17 +64,40 @@ include_once 'classes/blog.php';
         {
 
 
-            ?>
-                Blog Post Content
-            <?php
+        ?>
+            Blog Post Content
+        <?php
+        }
+        else if (isset($_GET['uid']) && is_numeric($_GET['uid']))
+        {
+
+
+        ?>
+            Blog Post Content
+        <?php
         }
         else
         {
 
 
-            ?>
-                Blog contents
-            <?php
+        ?>
+            <div>
+                <div>
+                    <h3>Blogs</h3>
+                </div>
+                <div>
+                    <a href="blog_post.php">New Post</a>
+                </div>
+                <div>
+                    Title 
+                    Text
+                    Timestamp
+                    Num Comments
+                </div>
+
+             </div>
+
+        <?php
         }
 
     ?>

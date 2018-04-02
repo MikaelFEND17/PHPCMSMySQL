@@ -1,3 +1,8 @@
+<?php
+include_once 'classes/ToDoList.php';
+
+$todo_list = new ToDoList($database_connection);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +12,15 @@
     <title>ToDo List</title>
 </head>
 <body>
+
+    <div>
+        <header>
+            To Do List PHP
+        </header>
+
+        <main>
+        </main>
+    </div>
     
 </body>
 </html>

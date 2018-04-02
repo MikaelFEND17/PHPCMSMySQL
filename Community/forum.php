@@ -1,8 +1,11 @@
 <?php
 session_start();
 
-include_once 'classes/forum.php';
+include_once 'class/user.php';
+include_once 'class/forum.php';
 
+
+$user = new User($database_connection);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,32 +52,57 @@ include_once 'classes/forum.php';
     </nav>
     
     <main>
-        <strong>Forum</strong><br>
-        <br>
-        Category - Num Threads - Last Post - Posted By - Time <br> 
     <?php 
-
-        //List forum Categories as Links
-
-        //Count Threads
-
-        //Last Thread
 
         if (isset($_GET['fid']) && is_numeric($_GET['fid']))
         {
-            ?>
+        ?>
+        
+            <div>
+                <div>
+                    <h3>Forum</h3>
+                </div>
+                <div>
+                    <div>Title</div>
+                </div>
+
             <?php
+            ?>
+            </div>
+        <?php
         }
         elseif (isset($_GET['tid']) && is_numeric($_GET['tid']))
         {
-            ?>
+        ?>          
+        
+            <div>
+                <div>
+                    <h3>Forum</h3>
+                </div>
+                <div>
+                    Thread Name - Posted By - Replies - Latest Reply By - Last Post Time 
+                </div>
+
             <?php
+            ?>
+            </div>
+        <?php
         }
         else
         {
-            ?>
+        ?>
+            <div>
+                <div>
+                    <h3>Forum</h3>
+                </div>
+                <div>
+                    Category - Num Threads - Last Post - Posted By - Last Post Time 
+                </div>
 
-            <?php
+                <?php
+                ?>
+            </div>
+        <?php
         }
     ?>
       

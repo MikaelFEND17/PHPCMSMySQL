@@ -1,7 +1,13 @@
 <?php
 session_start();
 
-include_once 'classes/news.php';
+include_once 'class/user.php';
+include_once 'class/news.php';
+
+$user = new User($database_connection);
+$news = new News($database_connection);
+
+$news->load_all_news();
 
 if (isset($_POST['btn-submit-post']))
 { 
@@ -104,16 +110,25 @@ if (isset($_POST['btn-submit-post']))
 
                 <?php
             }
-            else if (isset( $_GET['id']) && is_numeric($_GET['id']))
+            else if (isset( $_GET['id']) && is_numeric($_GET['id'])) //List specific news
             {
                 ?>
 
-                Lista alla nyheter
+                <div>
+                    <div>
+                        Title 
+                        Text
+                        <strong>Posted by:</strong> Timestamp
+                    </div>
 
-                Title 
-                Text
-                Timestamp
-                Comments
+                    <div>
+                        <div>
+                            <h5>Comments</h5>                
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
 
                 <?php
             }
@@ -121,12 +136,21 @@ if (isset($_POST['btn-submit-post']))
             {
                 ?>
 
-                Lista alla nyheter
+                <div>
+                    <div>
+                        <h3>News</h3>
+                    </div>
 
-                Title 
-                Text
-                Timestamp
-                Num Comments
+                    <div>
+                        Title 
+                        Text
+                        Timestamp
+                        Num Comments
+                    </div>
+
+                </div>
+
+
     
                 <?php
             }

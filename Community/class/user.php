@@ -25,7 +25,7 @@ class User
            $statement = $this->database->prepare("SELECT * FROM users WHERE username=:username OR email=:email LIMIT 1");
            $statement->execute(array(':username'=>$username, ':email'=>$email));
            $userRow = $statement->fetch(PDO::FETCH_ASSOC);
-           if ($stmt->rowCount() > 0)
+           if ($statement->rowCount() > 0)
            {
               if (password_verify($password, $userRow['password']))
               {
@@ -38,7 +38,7 @@ class User
               }
            }
         }
-        catch(PDOException $e)
+        catch (PDOException $e)
         {
             echo $e->getMessage();
         }
@@ -67,7 +67,7 @@ class User
     
             return $statement; 
         }
-        catch(PDOException $e)
+        catch (PDOException $e)
         {
             echo $e->getMessage();
         }    
