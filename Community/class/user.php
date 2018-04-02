@@ -129,6 +129,13 @@ class User
 
 }
 
+class UserInformation
+{
+    function __construct()
+    {
+    }
+}
+
 $user_ranks = array("Administrator", "Member");
 
 ?>

@@ -1,7 +1,19 @@
 <?php
 session_start();
 
-include_once 'classes/forum.php';
+include_once 'class/user.php';
+include_once 'class/forum.php';
+
+$user = new User($database_connection);
+
+if (isset($_POST['btn-start-thread']))
+{
+
+}
+else if (isset($_POST['btn-post-reply']))
+{
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,28 +66,78 @@ include_once 'classes/forum.php';
     </nav>
     
     <main>
-        <form id="form-forum-thread" action="placeholder.php" method="post">
-            <label for="input-title">Title: </label>
-            <br>
-            <input id="input-title" type="text" name="title" value="" placeholder="Title">
-            <br>
-            <label for="textarea-message">Message: </label>
-            <br>
-            <textarea id="textarea-message"></textarea>
-            <br>
-            <br>
-            <button type="submit" form="form-forum-thread">Start Thread</button>
-        </form>
 
-        <form id="form-forum-reply" action="placeholder.php" method="post">
-            <label for="textarea-message">Message: </label>
-            <br>
-            <textarea id="textarea-message"></textarea>
-            <br>
-            <br>
-            <button type="submit" form="form-forum-reply">Post Reply</button>
-        </form>
+        <?php
+        if (isset($_GET['fid']) && is_numeric($_GET['fid']))
+        {
 
+            if (false)
+            {
+            ?>
+
+                <div>
+                    Forum doesn't exist.<br>
+                    <br>
+                    <a href="javascript:history.back();">Go Back</a>
+                </div>
+
+            <?php
+            }
+            else
+            {
+        ?>
+
+                <div>
+                    <form id="form-forum-thread" method="post">
+                        <label for="input-title"><strong>Title:<strong></label>
+                        <br>
+                        <input id="input-title" type="text" name="title" value="" placeholder="Title">
+                        <br>
+                        <label for="textarea-message"><strong>Message:<strong></label>
+                        <br>
+                        <textarea id="textarea-message"></textarea>
+                        <br>
+                        <br>
+                        <button type="submit" form="form-forum-thread" name="btn-start-thread">Start Thread</button>
+                    </form>
+                </div>
+
+        <?php
+            }
+        }
+        else if (isset($_GET['tid']) && is_numeric($_GET['tid']))
+        {
+            //Check if thread is locked exsists
+            if (false)
+            {
+            ?>
+                <div>
+                    Thread is locked and you can not make a new post.<br>
+                    <br>
+                    <a href="javascript:history.back();">Go Back</a>
+                </div>
+
+            <?php
+            }
+            else
+            {
+        ?>
+
+                <div>
+                    <form id="form-forum-reply" method="post">
+                        <label for="textarea-message"><strong>Message:<strong></label>
+                        <br>
+                        <textarea id="textarea-message"></textarea>
+                        <br>
+                        <br>
+                        <button type="submit" form="form-forum-reply" name="btn-post-reply">Post Reply</button>
+                    </form>
+                </div>
+
+        <?php
+            }
+        }
+        ?>
 
     </main>
 

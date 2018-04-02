@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-include_once 'classes/blog.php';
+include_once 'class/user.php';
+include_once 'class/blog.php';
+
+$user = new User($database_connection);
 
 if (isset($_POST['btn-submit-post']))
 { 
@@ -37,6 +40,7 @@ if (isset($_POST['btn-submit-post']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Community - Blog - New Post</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 
@@ -80,23 +84,26 @@ if (isset($_POST['btn-submit-post']))
     </nav>
     
     <main>
-        <form id="form-login" method="post">
-            <label for="input-title">Title: </label>
-            <br>
-            <input id="input-title" type="text" name="title" value="" placeholder="Title">
-            <br>
-            <label for="textarea-message">Message: </label>
-            <br>
-            <textarea id="textarea-message" name="message"></textarea>
-            <br>
+        <div id="blog-newpost">
+            <form id="form-login" method="post">
+                <label for="input-title"><strong>Title:</strong> </label>
+                <br>
+                <input id="input-title" type="text" name="title" value="" placeholder="Title">
+                <br>
+                <label for="textarea-message"><strong>Message:</strong> </label>
+                <br>
+                <textarea id="textarea-message" name="message"></textarea>
+                <br>
             
-            <label for="category">Category: </label><br> Add Category
-            <label for="tags">Tags: </label><br>
-            <label for="comments">Disable Comments: </label><br>
-            <br>
-            <button type="submit" form="form-login" name="btn-submit-post">Post Entry</button>
-        </form>
-
+                <label for="category"><strong>Category:</strong></label><br>
+                Add Category                <br>
+                <label for="tags"><strong>Tags:</strong></label><br>
+                <label for="comments"><strong>Disable Comments:</strong></label><br>
+                <br>
+                <button type="submit" form="form-login" name="btn-submit-post">Post Entry</button>
+            </form>
+        </div>
+        
     </main>
 
 </div>

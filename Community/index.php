@@ -61,11 +61,22 @@ $user = new User($database_connection);
         <?php
             if ($user->is_loggedin())
             {
+
+                $user_id = $_SESSION['user_session'];
+                $statement = $database_connection->prepare("SELECT * FROM users WHERE user_id=:user_id");
+                $statement->execute(array(":user_id"=>$user_id));
+                $userRow = $statementstmt->fetch(PDO::FETCH_ASSOC);
         ?>
         
-                Welcome username.<br>
+                Welcome <?=$userRow['user_name'];?>.<br>
                 What do you want to do today.
         
+        <?php
+            }
+            else if (isset($_GET['loggedout']))
+            {    
+        ?>
+                You are now logged out.
         <?php
             }
             else

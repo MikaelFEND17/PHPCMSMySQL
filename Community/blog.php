@@ -63,18 +63,57 @@ $blog = new Blog($database_connection);
     <?php 
         if (isset($_GET['id']) && is_numeric($_GET['id']))
         {
-
-
         ?>
-            Blog Post Content
+            <div>
+                <div>
+                    <h3>Blog Title</h3>
+                </div>
+                <div>
+                        By User: 
+                </div>
+                <div>
+                    <div>
+                        Title 
+                    </div>
+                    <div>
+                        Text
+                    </div>                    
+                    <div>
+                        Posted:
+                    </div>
+                    <div>
+                        Comments
+                    </div>  
+                </div>
+             </div>
+
         <?php
         }
         else if (isset($_GET['uid']) && is_numeric($_GET['uid']))
         {
-
-
         ?>
-            Blog Post Content
+            <div>
+                <div>
+                    <h3>Blog Title</h3>
+                </div>
+                <div>
+                    By User: 
+                </div>
+                <div>
+                    <div>
+                        Title 
+                    </div>
+                    <div>
+                        Text
+                    </div>                    
+                    <div>
+                        Posted:
+                    </div>
+                    <div>
+                        Comments: 
+                    </div>  
+                </div>
+             </div>
         <?php
         }
         else
@@ -90,12 +129,22 @@ $blog = new Blog($database_connection);
                     <a href="blog_post.php">New Post</a>
                 </div>
                 <div>
-                    Title 
-                    Text
-                    Timestamp
-                    Num Comments
+                    <div>
+                        By User: 
+                    </div>
+                    <div>
+                        Title 
+                    </div>
+                    <div>
+                        Text
+                    </div>                    
+                    <div>
+                        Posted:
+                    </div>
+                    <div>
+                        Comments
+                    </div>  
                 </div>
-
              </div>
 
         <?php

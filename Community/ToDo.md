@@ -1,3 +1,9 @@
+
+1. Visa username på startsidan. 
+2. Ladda användaren på profilsidan. -> Visa username på startsidan på detta
+
+---
+
 # Login
 * Make It Work
 * Last Login Timestamp Update

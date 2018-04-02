@@ -15,16 +15,15 @@ class Blog
     public $id;
     public $title;
 
-    
 }
 
 class BlogPost
 {
     public $id;
-    public $blog_id;
+    public $user_id;
     public $title;
-    public $post_text;
-    public $date;    
+    public $text;
+    public $timestamp;    
     
     function __construct($database_connection)
     {

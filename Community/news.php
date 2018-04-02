@@ -136,7 +136,7 @@ if (isset($_POST['btn-submit-post']))
             {
                 ?>
 
-                <div>
+                <div id="news-wrapper">
                     <div>
                         <h3>NEWS</h3>
                     </div>
@@ -147,13 +147,13 @@ if (isset($_POST['btn-submit-post']))
                         foreach ($news_posts as $post)
                         {
                         ?> 
-                        <div>
-                            <strong><?=$post->title;?></strong>
+                        <div class="news-post">
+                            <strong><a href="news.php?id=<?=$post->id?>"><?=$post->title;?></a></strong>
                             <br>
                             <?=$post->text;?>
                             <br>
                             <strong>Posted by:</strong> <a href="profile.php?id=<?=$post->user_id?>"><?=$user->get_username_by_id($post->user_id);?></a> <strong>at</strong> <?=$post->timestamp;?>
-                        <div>
+                        </div>
                         <?php
                         }
                     ?>

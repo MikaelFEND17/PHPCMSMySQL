@@ -1,3 +1,6 @@
+@import 'news';
+@import 'blog';
+
 $background-color: #FFFFFF;
 $text-color: #000000;
 $border-color: #000000;
@@ -26,6 +29,9 @@ header
 
 main
 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     background-color: $background-color;
     padding: 1em;
 }
