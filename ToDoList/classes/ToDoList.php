@@ -2,6 +2,8 @@
 
 class ToDoList
 {
+    private $database;
+    
     function __construct($database_connection)
     {
       $this->database = $database_connection;
@@ -21,6 +23,13 @@ class ToDoList
     {
 
     }
+}
+
+class Task
+{
+    public $id;
+    public $task;
+    public $completed;
 }
 
 ?>

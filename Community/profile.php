@@ -2,6 +2,8 @@
 session_start();
     
 include_once 'class/user.php';
+
+$user = new User($database_connection);
 ?>
 
 <!DOCTYPE html>
@@ -59,6 +61,12 @@ include_once 'class/user.php';
         <?php 
         if (isset($_GET['id']) && is_numeric($_GET['id']))
         {
+            $id = trim($_GET['id']);
+            $profileUser = new User($database_connection);
+            $profileUser->create_user_from_id($id);
+
+            echo var_dump($profileUser);
+
             if (isset($_GET['action']) && ($_GET['action'] == 'edit'))
             {
         ?>
@@ -73,9 +81,24 @@ include_once 'class/user.php';
             else
             {
             ?>
-                <h3>Profile</h3> 
-                <strong>Username:</strong>
-                UserName
+                
+                <div>
+                    <div>
+                        <h3>PROFILE</h3>
+                    </div>
+                    <div>
+                        <strong>Username:</strong>
+                        <br>
+                        <?=$profileUser->username?>
+                    </div>
+                    <div>
+                        <strong>E-mail:</strong>
+                        <br>
+                        <?=$profileUser->email?>
+                    </div>
+                </div>
+                 
+                
 
             <?php
             }

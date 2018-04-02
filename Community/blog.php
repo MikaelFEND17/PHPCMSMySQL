@@ -5,6 +5,7 @@ include_once 'class/user.php';
 include_once 'class/blog.php';
 
 $user = new User($database_connection);
+$blog = new Blog($database_connection);
 ?>
 
 <!DOCTYPE html>

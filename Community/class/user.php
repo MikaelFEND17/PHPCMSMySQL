@@ -81,6 +81,52 @@ class User
         }
     }
 
+    public function get_username_by_id($id)
+    {
+        try
+        {
+           $statement = $this->database->prepare("SELECT username FROM users WHERE id=:id");
+           $statement->bindparam(":id", $id);        
+           $statement->execute(); 
+           $userRow = $statement->fetch(PDO::FETCH_ASSOC);
+           
+           //echo var_dump($userRow);
+           if ($statement->rowCount() > 0)
+           {
+                return $userRow['username'];
+           }
+           else
+           {
+               return "Unknown User";
+           }
+        }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function create_user_from_id($id)
+    {
+        try
+        {
+           $statement = $this->database->prepare("SELECT * FROM users WHERE id=:id");    
+           $statement->bindparam(":id", $id);         
+           $statement->execute(); 
+           $userRow = $statement->fetch(PDO::FETCH_ASSOC);   
+           
+           if ($statement->rowCount() > 0)
+           {
+                $this->username = $userRow['username'];
+                $this->email = $userRow['email'];
+           }
+        }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
 }
 
 $user_ranks = array("Administrator", "Member");

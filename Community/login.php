@@ -7,9 +7,9 @@ $user = new User($database_connection);
 
 if (isset($_POST['btn-login']))
 {
-    $username = $_POST['username'];
-    $email = $_POST['username'];
-    $password = $_POST['password'];
+    $username = trim($_POST['username']);
+    $email = trim($_POST['username']);
+    $password = trim($_POST['password']);
   
     if ($user->login($username, $email, $password))
     {

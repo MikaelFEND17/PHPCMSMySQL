@@ -22,16 +22,14 @@ class News
     {
       try
       {
-         $statement = $this->database->prepare("SELECT * FROM news");
+         $statement = $this->database->prepare("SELECT * FROM news ORDER BY timestamp DESC");
          $statement->execute();
 
          $result = $statement->fetchAll(PDO::FETCH_CLASS, 'NewsPost');
 
-         var_dump($result);
-
          foreach ($result as $newspost)
          {
-          array_push($newsposts, $newspost);
+            array_push($this->newsposts, $newspost);
          }
       }
       catch (PDOException $e)
@@ -42,7 +40,7 @@ class News
 
     public function get_news()
     {
-      return $newsposts;
+      return $this->newsposts;
   }
 }
 

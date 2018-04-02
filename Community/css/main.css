@@ -39,6 +39,9 @@ nav {
   nav li + li:before {
     content: " - "; }
 
+a {
+  color: #000000; }
+
 #wrapper {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -138,20 +138,28 @@ if (isset($_POST['btn-submit-post']))
 
                 <div>
                     <div>
-                        <h3>News</h3>
+                        <h3>NEWS</h3>
                     </div>
 
-                    <div>
-                        Title 
-                        Text
-                        Timestamp
-                        Num Comments
-                    </div>
+                    <?php
+                        $news_posts = $news->get_news();
+
+                        foreach ($news_posts as $post)
+                        {
+                        ?> 
+                        <div>
+                            <strong><?=$post->title;?></strong>
+                            <br>
+                            <?=$post->text;?>
+                            <br>
+                            <strong>Posted by:</strong> <a href="profile.php?id=<?=$post->user_id?>"><?=$user->get_username_by_id($post->user_id);?></a> <strong>at</strong> <?=$post->timestamp;?>
+                        <div>
+                        <?php
+                        }
+                    ?>
 
                 </div>
 
-
-    
                 <?php
             }
 
