@@ -2,6 +2,7 @@
 
 class ToDoList
 {
+    public $tasks = array();
     private $database;
     
     function __construct($database_connection)
@@ -9,7 +10,7 @@ class ToDoList
       $this->database = $database_connection;
     }
 
-    public function get_all_todos()
+    public function load_all_todos()
     {
 
     }
@@ -22,6 +23,11 @@ class ToDoList
     public function set_as_finished($id)
     {
 
+    }
+
+    public function get_tasks()
+    {
+        return $tasks;
     }
 }
 

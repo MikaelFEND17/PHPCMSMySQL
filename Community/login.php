@@ -20,6 +20,11 @@ if (isset($_POST['btn-login']))
         $error = "Username or password was incorrect.";
     } 
 }
+else if (isset($_POST['btn-login-resetpassword']))
+{
+    //Send Mail
+    $sent = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +80,35 @@ if (isset($_POST['btn-login']))
     <main>
 
         <?php
-            if (!$user->is_loggedin())
+            if (isset($_GET['forgot']))
+            {
+        ?>
+            <form id="form-login-forgotpassword" method="post">
+                <label for="input-value">Username / E-mail: </label>
+                <br>
+                <input id="input-text" type="text" name="input-value" value="" placeholder="">
+                <br>
+                <button type="submit" form="form-login" name="btn-login-resetpassword">Reset Password</button>
+            </form> 
+        <?
+            }
+            else if (isset($_POST['btn-login-resetpassword']))
+            {
+                if ($sent)
+                {
+                ?>
+                    An e-mail was sent to xxxx with instructions on how to reset your password.
+                <?php  
+                }
+                else
+                {
+                ?>
+                    Could not find username or e-mail in the database.<br>
+                    Please try again.
+                <?php
+                }
+            }
+            else if (!$user->is_loggedin())
             {
         ?>
         
@@ -88,7 +121,7 @@ if (isset($_POST['btn-login']))
         <?php
             }
         ?>
-            <form id="form-login" action="login.php" method="post">
+            <form id="form-login" method="post">
                 <label for="input-username">Username: </label>
                 <br>
                 <input id="input-username" type="text" name="username" value="" placeholder="Username">
@@ -96,6 +129,9 @@ if (isset($_POST['btn-login']))
                 <label for="input-password">Password: </label>
                 <br>
                 <input id="input-password" type="password" name="password" value="" placeholder="Password">
+                <br>
+                <input type="checkbox" id="checkbox-rememberme" name="rememberme" value="Remember">
+                <label for="checkbox-rememberme">Keep me logged in.</label>
                 <br>
                 <br>
                 <button type="submit" form="form-login" name="btn-login">Login</button>

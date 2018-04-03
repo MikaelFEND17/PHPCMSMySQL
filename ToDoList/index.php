@@ -19,6 +19,18 @@ $todo_list = new ToDoList($database_connection);
         </header>
 
         <main>
+
+
+            <div id="headers">
+                <div id="todo-header">To Do</div>
+                <div id="todo-header">Done</div>
+            </div>
+            <div id="items">
+                <div id="done-items"></div>
+                <div id="done-items"></div>
+            </div>
+
+
         </main>
     </div>
     

@@ -7,7 +7,17 @@ include_once 'class/news.php';
 $user = new User($database_connection);
 $news = new News($database_connection);
 
-$news->load_all_news();
+if (isset($_GET['id']) && is_numeric($_GET['id'])) //List specific news
+{
+    $news_post = $news->get_news_by_id($_GET['id']);
+    $news_post_comments = $news->get_comments_from_id($_GET['id']);
+}
+else if (!isset($_GET['action']))
+{
+
+    $news->load_all_news();
+}
+
 
 if (isset($_POST['btn-submit-post']))
 { 
@@ -110,16 +120,32 @@ if (isset($_POST['btn-submit-post']))
 
                 <?php
             }
-            else if (isset( $_GET['id']) && is_numeric($_GET['id'])) //List specific news
+            else if (isset($_GET['id']) && is_numeric($_GET['id'])) //List specific news
             {
+                if ($newsPost == NULL)
+                {
+                    ?>
+                    
+                    <div>
+                        No News matching ID: <?=$_GET['id']?>
+                    </div>
+
+                    <?php
+                }
+                else
+                {
+
+                
                 ?>
 
                 <div>
-                    <div>
-                        Title 
-                        Text
-                        <strong>Posted by:</strong> Timestamp
-                    </div>
+                    <div class="news-post">
+                    <strong><?=$newsPost->title;?></strong>
+                    <br>
+                    <?=$newsPost->text;?>
+                    <br>
+                    <strong>Posted by:</strong> <a href="profile.php?id=<?=$newsPost->user_id?>"><?=$user->get_username_by_id($newsPost->user_id);?></a> <strong>at</strong> <?=$newsPost->timestamp;?>
+                </div>
 
                     <div>
                         <div>
@@ -131,6 +157,7 @@ if (isset($_POST['btn-submit-post']))
                 </div>
 
                 <?php
+                }
             }
             else
             {

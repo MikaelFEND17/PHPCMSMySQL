@@ -42,6 +42,36 @@ class News
     {
       return $this->newsposts;
   }
+
+  public function get_news_by_id($id)
+  {
+    try
+    {
+        $statement = $this->database->prepare("SELECT * FROM news WHERE id=:id");
+        $statement->bindparam(":id", $id);   
+        $statement->setFetchMode(PDO::FETCH_CLASS, 'NewsPost');      
+        $statement->execute(); 
+        $news = $statement->fetch();
+       
+        if ($statement->rowCount() > 0)
+        {
+            return $news;
+        }
+        else
+        {
+           return NULL;
+        }
+    }
+    catch (PDOException $e)
+    {
+        echo $e->getMessage();
+    }
+  }
+
+  public function get_comments_from_id($id)
+  {
+      
+  }
 }
 
 class NewsPost

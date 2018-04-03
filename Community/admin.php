@@ -124,7 +124,7 @@ $user = new User($database_connection);
         }
 
         //Things to add?
-        // Num on News
+        // Num on News?????
         ?>
         </div>
     </main>
