@@ -8,6 +8,8 @@
 * Make It Work
 * Last Login Timestamp Update
 * Handle Hashed Passwords
+* Remember me
+* New Hash Function?
 
 # Register
 * Save User

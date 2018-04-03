@@ -2,6 +2,8 @@
 include_once 'classes/ToDoList.php';
 
 $todo_list = new ToDoList($database_connection);
+
+$todo_list->load_all_todos();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +28,18 @@ $todo_list = new ToDoList($database_connection);
                 <div id="todo-header">Done</div>
             </div>
             <div id="items">
+
+            <?php
+
+            $todos = $todo_list->get
+            ?>
+
                 <div id="done-items"></div>
                 <div id="done-items"></div>
+
+            <?php 
+
+            ?>
             </div>
 
 

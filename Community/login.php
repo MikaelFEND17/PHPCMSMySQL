@@ -50,6 +50,9 @@ else if (isset($_POST['btn-login-resetpassword']))
                 <a href="index.php">Home</a>
             </li>
             <li>
+                Profile
+            </li>
+            <li>
                 <a href="news.php">News</a>
             </li>
             <li>

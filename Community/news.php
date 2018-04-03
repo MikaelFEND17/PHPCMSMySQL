@@ -68,6 +68,16 @@ if (isset($_POST['btn-submit-post']))
             <li>
                 <a href="index.php">Home</a>
             </li>
+            <?php
+            if ($user->is_loggedin())
+            {
+            ?>
+            <li>
+                <a href="profile.php?id?=<?=$_SESSION['user_session']?>">Profile</a>
+            </li>
+            <?php
+            }
+            ?>
             <li>
                 <a href="news.php">News</a>
             </li>
