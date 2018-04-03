@@ -85,11 +85,11 @@ else if (isset($_POST['btn-post-reply']))
             {
             ?>
 
-                <div>
-                    Forum doesn't exist.<br>
-                    <br>
-                    <a href="javascript:history.back();">Go Back</a>
-                </div>
+            <div>
+                Forum doesn't exist.<br>
+                <br>
+                <a href="javascript:history.back();">Go Back</a>
+            </div>
 
             <?php
             }
@@ -97,20 +97,20 @@ else if (isset($_POST['btn-post-reply']))
             {
         ?>
 
-                <div>
-                    <form id="form-forum-thread" method="post">
-                        <label for="input-title"><strong>Title:<strong></label>
-                        <br>
-                        <input id="input-title" type="text" name="title" value="" placeholder="Title">
-                        <br>
-                        <label for="textarea-message"><strong>Message:<strong></label>
-                        <br>
-                        <textarea id="textarea-message"></textarea>
-                        <br>
-                        <br>
-                        <button type="submit" form="form-forum-thread" name="btn-start-thread">Start Thread</button>
-                    </form>
-                </div>
+            <div>
+                <form id="form-forum-thread" method="post">
+                    <label for="input-title"><strong>Title:<strong></label>
+                    <br>
+                    <input id="input-title" type="text" name="title" value="" placeholder="Title">
+                    <br>
+                    <label for="textarea-message"><strong>Message:<strong></label>
+                    <br>
+                    <textarea id="textarea-message"></textarea>
+                    <br>
+                    <br>
+                    <button type="submit" form="form-forum-thread" name="btn-start-thread">Start Thread</button>
+                </form>
+            </div>
 
         <?php
             }
@@ -133,16 +133,16 @@ else if (isset($_POST['btn-post-reply']))
             {
         ?>
 
-                <div>
-                    <form id="form-forum-reply" method="post">
-                        <label for="textarea-message"><strong>Message:<strong></label>
-                        <br>
-                        <textarea id="textarea-message"></textarea>
-                        <br>
-                        <br>
-                        <button type="submit" form="form-forum-reply" name="btn-post-reply">Post Reply</button>
-                    </form>
-                </div>
+            <div>
+                <form id="form-forum-reply" method="post">
+                    <label for="textarea-message"><strong>Message:<strong></label>
+                    <br>
+                    <textarea id="textarea-message"></textarea>
+                    <br>
+                    <br>
+                    <button type="submit" form="form-forum-reply" name="btn-post-reply">Post Reply</button>
+                </form>
+            </div>
 
         <?php
             }

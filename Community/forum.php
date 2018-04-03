@@ -87,8 +87,12 @@ $user = new User($database_connection);
         elseif (isset($_GET['tid']) && is_numeric($_GET['tid']))
         {
         ?>          
-            <div>
-                    Thread Name - Posted By - Replies - Latest Reply By - Last Post Time 
+            <div id="forum-category-header">
+                <div>Thread Name</div>
+                <div>Posted By</div>
+                <div>Replies</div>
+                <div>Latest Reply By</div>
+                <div>Last Post Time</div>
             </div>
             <div>
 
@@ -104,8 +108,12 @@ $user = new User($database_connection);
         {
         ?>
 
-            <div>
-                Category - Num Threads - Last Post - Posted By - Last Post Time 
+            <div id="forum-category-header">
+                <div>Category</div>
+                <div>Num Threads</div>
+                <div>Last Post</div>
+                <div>Posted By</div>
+                <div>Last Post Time </div>
             </div>
             <div>
 

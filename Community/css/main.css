@@ -51,6 +51,19 @@
   width: 100%;
   margin-top: 1em; }
 
+.text-button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0; }
+
+#forum-category-header {
+  width: 50%;
+  border: 1px solid #000000; }
+
+.forum-border-right {
+  border-right: 1px solid #000000; }
+
 html {
   width: 100%; }
 

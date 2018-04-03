@@ -75,15 +75,16 @@ $user = new User($database_connection);
             $profileUser = new User($database_connection);
             $profileUser->create_user_from_id($id);
 
-            echo var_dump($profileUser);
-
             if (isset($_GET['action']) && ($_GET['action'] == 'edit'))
             {
         ?>
-
+                <strong>Username:</strong><br>
+                Username<br>
                 <form action="POST">
-                    <label for="profile-username">Username:</label>
-                    <input id="profile-username" type="text" name="username" value="" disabled>
+                    <label for="profile-firstname"><strong>First name:</strong></label>
+                    <input id="profile-firstname" type="text" name="firstname" value="">
+                    <label for="profile-lastname"><strong>Last name:</strong></label>
+                    <input id="profile-lastname" type="text" name="lastname" value="">
                 </form>
 
             <?php
@@ -111,6 +112,18 @@ $user = new User($database_connection);
                 
 
             <?php
+                if ($user->is_loggedin())
+                {
+                    if ($_GET['id'] == $_GET['id'])
+                    {
+                        //Edit Link
+                    }
+                    else
+                    {
+                        //Message Link
+                    }
+
+                }
             }
         }
         else
