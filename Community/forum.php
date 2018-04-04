@@ -34,7 +34,7 @@ $user = new User($database_connection);
             {
             ?>
             <li>
-                <a href="profile.php?id?=<?=$_SESSION['user_session']?>">Profile</a>
+                <a href="profile.php">Profile</a>
             </li>
             <?php
             }
@@ -71,6 +71,7 @@ $user = new User($database_connection);
 
         if (isset($_GET['fid']) && is_numeric($_GET['fid']))
         {
+            $forum_threads = $forum->get_forum_threads_from_category($_GET['fid']);
         ?>
             <div>
                 <div>Title</div>
@@ -86,12 +87,14 @@ $user = new User($database_connection);
         }
         elseif (isset($_GET['tid']) && is_numeric($_GET['tid']))
         {
+            $forum_thread = $forum->get_forum_thread($_GET['tid']);
+            $thread_replies = $forum->get_replies_for_thread($_GET['tid']);
         ?>          
             <div id="forum-category-header">
-                <div>Thread Name</div>
-                <div>Posted By</div>
-                <div>Replies</div>
-                <div>Latest Reply By</div>
+                <div class="forum-border-right">Thread Name</div>
+                <div class="forum-border-right">Posted By</div>
+                <div class="forum-border-right">Replies</div>
+                <div class="forum-border-right">Latest Reply By</div>
                 <div>Last Post Time</div>
             </div>
             <div>
@@ -106,19 +109,25 @@ $user = new User($database_connection);
         }
         else
         {
+            $forum_categories = $forum->get_forum_categories();
         ?>
 
             <div id="forum-category-header">
-                <div>Category</div>
-                <div>Num Threads</div>
-                <div>Last Post</div>
-                <div>Posted By</div>
+                <div class="forum-border-right">Category</div>
+                <div class="forum-border-right">Num Threads</div>
+                <div class="forum-border-right">Last Post</div>
+                <div class="forum-border-right">Posted By</div>
                 <div>Last Post Time </div>
             </div>
             <div>
 
             <?php
+                foreach ($forum_categories as $forum_category)
+                {
+            ?>
 
+            <?
+                }
                 //<a href="forum.php?fid="></a>
             ?>
 

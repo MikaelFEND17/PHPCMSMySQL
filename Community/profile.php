@@ -1,6 +1,6 @@
 <?php
 session_start();
-    
+
 include_once 'class/user.php';
 
 $user = new User($database_connection);
@@ -33,7 +33,7 @@ $user = new User($database_connection);
             {
             ?>
             <li>
-                <a href="profile.php?id?=<?=$_SESSION['user_session']?>">Profile</a>
+                <a href="profile.php">Profile</a>
             </li>
             <?php
             }
@@ -69,15 +69,16 @@ $user = new User($database_connection);
     <main>
 
         <?php 
-        if (isset($_GET['id']) && is_numeric($_GET['id']))
+        $profileUser = NULL;
+        if (isset($_GET['action']) && ($_GET['action'] == 'edit'))
         {
-            $id = trim($_GET['id']);
-            $profileUser = new User($database_connection);
-            $profileUser->create_user_from_id($id);
-
-            if (isset($_GET['action']) && ($_GET['action'] == 'edit'))
+            if (isset($_GET['id']) && is_numeric($_GET['id']))
             {
-        ?>
+                $id = trim($_GET['id']);
+                $profileUser = new User($database_connection);
+                $profileUser->create_user_from_id($id);
+                ?>
+
                 <strong>Username:</strong><br>
                 Username<br>
                 <form action="POST">
@@ -89,46 +90,53 @@ $user = new User($database_connection);
 
             <?php
             }
-            else
-            {
-            ?>
-                
-                <div>
-                    <div>
-                        <h3>PROFILE</h3>
-                    </div>
-                    <div>
-                        <strong>Username:</strong>
-                        <br>
-                        <?=$profileUser->username?>
-                    </div>
-                    <div>
-                        <strong>E-mail:</strong>
-                        <br>
-                        <?=$profileUser->email?>
-                    </div>
-                </div>
-                 
-                
-
-            <?php
-                if ($user->is_loggedin())
-                {
-                    if ($_GET['id'] == $_GET['id'])
-                    {
-                        //Edit Link
-                    }
-                    else
-                    {
-                        //Message Link
-                    }
-
-                }
-            }
         }
-        else
+        else if (isset($_GET['id']) && is_numeric($_GET['id']))
         {
-            //Print some Error Shit here
+            $profileUser = new User($database_connection);
+            $profileUser->create_user_from_id($_GET['id']);
+        }
+        else if ($user->is_loggedin())
+        {            
+            $profileUser = new User($database_connection);
+            $profileUser->create_user_from_id($_SESSION['user_session']);
+        }
+        if ($profileUser != NULL)
+        {
+        ?>
+               
+        <div>
+            <div>
+                <h3>PROFILE</h3>
+            </div>
+            <div>
+                <strong>Username:</strong>
+                <br>
+                <?=$profileUser->username?>
+            </div>
+            <div>
+                <strong>E-mail:</strong>
+                <br>
+                <?=$profileUser->email?>
+            </div>
+            <div>
+                <?php
+                if (($user->is_loggedin()) && ($_SESSION['user_session'] == $profileUser->id))
+                {
+                ?>
+                    <a href="profile.php?action=edit">Edit Profile</a>
+                <?php
+                }
+                else
+                {
+                ?>  
+                    <a href="message.php?action=send&id=<?=$profileUser->id?>">Send Message</a>
+                <?php
+                }
+                ?>
+            </div>
+        </div>
+        <?php
         }
         ?>
       

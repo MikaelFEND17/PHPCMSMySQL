@@ -35,7 +35,7 @@ $user = new User($database_connection);
             {
             ?>
             <li>
-                <a href="profile.php?id?=<?=$_SESSION['user_session']?>">Profile</a>
+                <a href="profile.php">Profile</a>
             </li>
             <?php
             }

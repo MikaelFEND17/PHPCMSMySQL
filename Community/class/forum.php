@@ -12,6 +12,8 @@ class Forum
     public $last_post_title;
     public $thead_count;
     public $reply_count;
+
+    public $threads = array();
     
     private $database;
  
@@ -20,19 +22,35 @@ class Forum
       $this->database = $database_connection;
     }
 
-    public $threads = array();
+    public function get_forum_categories()
+    {
+        try
+        {
+            $statement = $this->database->prepare("SELECT * FROM forum_category");  
+            $statement->execute(); 
+            $result = $statement->fetchAll(PDO::FETCH_CLASS, 'ForumCategory');
+   
+            if ($statement->rowCount() > 0)
+            {
+                return $result;
+            }
+            else
+            {
+               return NULL;
+            }
+        }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
 
-    public function show_forum_categories()
+    public function get_forum_threads_from_category()
     {
 
     }
 
-    public function show_forum_category()
-    {
-
-    }
-
-    public function show_forum_thread()
+    public function get_forum_thread()
     {
 
     }
@@ -44,21 +62,22 @@ class Forum
 
     public function create_thread($user_id, $forum_id, $thread_title, $thread_text)
     {
-        $timestamp;
     }
 
     public function create_reply($user_id, $thread_id, $thread_text)
     {
-        $timestamp;
-
-
     }
 
 }
 
+class ForumCategory
+{
+    public $id;
+    public $name;
+}
+
 class ForumThread
 {
-
     public $id;
     public $user_id;
     public $category_id;

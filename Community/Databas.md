@@ -1,5 +1,5 @@
 #User
-* UserID
+* ID
 * Username
 * Password
 * E-mail
@@ -15,12 +15,13 @@
 * Post
 * Tags
 * Category
-* Date
+* Timestamp
 
 #Blog Comments
 * ID
 * PostID
 * UserID
+* Timestamp
 
 #Forum
 * ID
@@ -32,14 +33,14 @@
 * UserID
 * Title
 * Message
-* Date
+* Timestamp
 
 #ForumReplies
 * ID
 * PostID
 * UserID
 * Message
-* Date
+* Timestamp
 
 
 #News
@@ -47,10 +48,11 @@
 * UserID
 * Title
 * Message
-* Date
+* Timestamp
 
 #NewsComments
 * ID
+* NewsID
 * UserID
 * Message
-* Date
+* Timestamp

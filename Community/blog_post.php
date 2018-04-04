@@ -60,7 +60,7 @@ if (isset($_POST['btn-submit-post']))
             {
             ?>
             <li>
-                <a href="profile.php?id?=<?=$_SESSION['user_session']?>">Profile</a>
+                <a href="profile.php">Profile</a>
             </li>
             <?php
             }

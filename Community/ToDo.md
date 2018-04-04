@@ -1,6 +1,14 @@
 
-1. Visa username på startsidan. 
-2. Ladda användaren på profilsidan. -> Visa username på startsidan på detta
+X. Visa username på startsidan på bättre sätt.
+1. Lista ALLA Blogg-inlägg med Blogg-titel
+2. Länka Användares blogg + num comments
+3. Länka enkel blogg post + comments
+4. News vista num comments
+
+X. News lista bara 10 senaste.
+X. Blogg Pagination 10 per sida.
+
+Gör ToDo-Listan...
 
 ---
 

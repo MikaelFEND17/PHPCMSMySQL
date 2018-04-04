@@ -35,7 +35,7 @@ $blog = new Blog($database_connection);
             {
             ?>
             <li>
-                <a href="profile.php?id?=<?=$_SESSION['user_session']?>">Profile</a>
+                <a href="profile.php">Profile</a>
             </li>
             <?php
             }
@@ -73,31 +73,61 @@ $blog = new Blog($database_connection);
     <?php 
         if (isset($_GET['id']) && is_numeric($_GET['id']))
         {
-        ?>
+            $blogpost = $blog->get_blog_post($_GET['id']);
+
+            if ($blogpost == NULL)
+            {
+            ?>
+
+            <div>
+                No blog post with ID <?=$_GET['id']?> found.
+            </div>
+
+            <?php
+            }
+            else
+            {
+            ?>
+
             <div>
                 <div>
-                    <h3>Blog Title</h3>
+                    <h3>Blog Title Here</h3>
                 </div>
-                <div>
-                        By User: 
-                </div>
+
                 <div>
                     <div>
-                        Title 
+                        <strong>By User:</strong> <a href="profile.php?id=<?=$blogpost->user_id?>"><?=$user->get_username_by_id($blogpost->user_id);?></a>
                     </div>
                     <div>
-                        Text
+                        <strong><?=$blogpost->title?></strong>
+                    </div>
+                    <div>
+                        <?=$blogpost->text?>
                     </div>                    
                     <div>
-                        Posted:
+                        <strong>Posted:</strong> <?=$blogpost->timestamp?>
                     </div>
-                    <div>
-                        Comments
-                    </div>  
-                </div>
+                </div>           
+
+                <div>
+                    Comments
+                </div>  
+
+                <?php
+                
+                $comments = $blog->get_comments_for_id($blogpost->id);
+
+                foreach ($comments as $comment)
+                {
+
+                }
+                
+                ?>
+
              </div>
 
         <?php
+            }
         }
         else if (isset($_GET['uid']) && is_numeric($_GET['uid']))
         {
@@ -120,7 +150,7 @@ $blog = new Blog($database_connection);
                         Posted:
                     </div>
                     <div>
-                        Comments: 
+                        Comments (0)
                     </div>  
                 </div>
              </div>
@@ -137,23 +167,35 @@ $blog = new Blog($database_connection);
                 <div>
                     <a href="blog_post.php">New Post</a>
                 </div>
+
+                <?php
+
+                $blogposts = $blog->get_all_blog_posts();
+
+                foreach ($blogposts as $blogpost)
+                {
+                ?>
                 <div class="blog-post">
                     <div>
-                        By User: 
+                        <strong>By User:</strong> <a href="profile.php?id=<?=$blogpost->user_id?>"><?=$user->get_username_by_id($blogpost->user_id);?></a>
                     </div>
                     <div>
-                        Title 
+                        <strong><a href="blog.php?id=<?=$blogpost->id?>"><?=$blogpost->title?></a></strong>
                     </div>
                     <div>
-                        Text
+                        <?=$blogpost->text?>
                     </div>                    
                     <div>
-                        Posted:
+                        <strong>Posted:</strong> <?=$blogpost->timestamp?>
                     </div>
                     <div>
-                        Comments
+                        Comments (0)
                     </div>  
                 </div>
+                <?php
+                }
+                ?>
+
              </div>
 
         <?php

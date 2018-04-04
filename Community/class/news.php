@@ -6,6 +6,7 @@ class News
 {   
 
     public $newsposts = array();
+    public $comments = array();
     private $database;
  
     function __construct($database_connection)
@@ -51,11 +52,11 @@ class News
         $statement->bindparam(":id", $id);   
         $statement->setFetchMode(PDO::FETCH_CLASS, 'NewsPost');      
         $statement->execute(); 
-        $news = $statement->fetch();
+        $result = $statement->fetch();
        
         if ($statement->rowCount() > 0)
         {
-            return $news;
+            return $result;
         }
         else
         {
@@ -70,7 +71,31 @@ class News
 
   public function get_comments_from_id($id)
   {
-      
+    try
+        {
+        $statement = $this->database->prepare("SELECT * FROM news_comments WHERE news_id=:id");
+        $statement->bindparam(":id", $id);        
+        $statement->execute(); 
+        $result = $statement->fetchAll(PDO::FETCH_CLASS, 'NewsCommments');
+   
+        if ($statement->rowCount() > 0)
+        {
+            return $result;
+        }
+        else
+        {
+           return NULL;
+        }
+    }
+    catch (PDOException $e)
+    {
+        echo $e->getMessage();
+    }
+  }
+
+  public function get_number_of_comments($id)
+  {
+    return 0;
   }
 }
 
@@ -81,6 +106,15 @@ class NewsPost
   public $text;
   public $user_id;
   public $timestamp;
+}
+
+class NewsCommments
+{
+    public $id;
+    public $news_id;
+    public $user_id;
+    public $text;
+    public $timestamp;
 }
 
 ?>

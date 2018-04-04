@@ -42,7 +42,7 @@ else if (isset($_POST['btn-post-reply']))
             {
             ?>
             <li>
-                <a href="profile.php?id?=<?=$_SESSION['user_session']?>">Profile</a>
+                <a href="profile.php">Profile</a>
             </li>
             <?php
             }

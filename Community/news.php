@@ -73,7 +73,7 @@ if (isset($_POST['btn-submit-post']))
             {
             ?>
             <li>
-                <a href="profile.php?id?=<?=$_SESSION['user_session']?>">Profile</a>
+                <a href="profile.php">Profile</a>
             </li>
             <?php
             }
@@ -132,6 +132,7 @@ if (isset($_POST['btn-submit-post']))
             }
             else if (isset($_GET['id']) && is_numeric($_GET['id'])) //List specific news
             {
+                $newsPost = $news->get_news_by_id($_GET['id']);
                 if ($newsPost == NULL)
                 {
                     ?>
@@ -159,10 +160,37 @@ if (isset($_POST['btn-submit-post']))
 
                     <div>
                         <div>
-                            <h5>Comments</h5>                
+                            <h4>Comments</h4>                
                         </div>
-                        <div>
+
+                        <div id="news-post-comments">
+                            <?php
+                                $comments =  $news->get_comments_from_id($newsPost->id);
+                            
+                                foreach ($comments as $comment)
+                                {
+                                ?>
+                                <div class="news-post-comment">
+                                    <div>
+                                        <?=$comment->text?>
+                                    </div>
+                                    <div>
+                                        <a href="profile.php?id=<?=$comment->user_id?>"><?=$user->get_username_by_id($comment->user_id);?></a>
+                                    </div>
+                                    <div>
+                                        <?=$comment->timestamp?>
+                                    </div>
+                                </div>
+                                
+                                <?php 
+                                }
+                            ?>
                         </div>
+                        
+                        <?php
+
+                        ?>
+                        
                     </div>
                 </div>
 

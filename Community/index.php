@@ -33,7 +33,8 @@ $user = new User($database_connection);
         {
         ?>
         <li>
-            <a href="profile.php?id?=<?=$_SESSION['user_session']?>">Profile</a>
+            <a href="profile.php">Profile</a> 
+            <strong>(</strong><a href="message.php">0</a><strong>)</strong>
         </li>
         <?php
         }
@@ -78,7 +79,7 @@ $user = new User($database_connection);
                 $userRow = $statement->fetch(PDO::FETCH_ASSOC);
         ?>
         
-                Welcome <?=$userRow['username'];?>.<br>
+                Welcome <strong><?=$userRow['username'];?></strong>.<br>
                 What do you want to do today.
         
         <?php

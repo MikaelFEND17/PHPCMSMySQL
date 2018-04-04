@@ -12,7 +12,8 @@
 .news-post {
   width: 100%;
   border: 1px solid #000000;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  padding: 1em; }
 
 .news-post-title {
   width: 100%; }
@@ -22,6 +23,16 @@
 
 .news-post-info {
   width: 100%; }
+
+#news-post-comments {
+  border: 1px solid #000000;
+  padding: 1em; }
+
+.news-post-comment {
+  padding: 1em 0; }
+
+.news-post-comment:not(:last-child) {
+  border-bottom: 1px solid #000000; }
 
 #blog-newpost {
   width: 50%;

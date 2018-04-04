@@ -13,6 +13,7 @@ $border-color: #000000;
     width: 100%;
     border: 1px solid $border-color;
     margin-bottom: 1em;
+    padding: 1em;
 }
 
 .news-post-title
@@ -28,4 +29,20 @@ $border-color: #000000;
 .news-post-info
 {
     width: 100%;
+}
+
+#news-post-comments
+{
+    border: 1px solid $border-color;
+    padding: 1em;
+}
+
+.news-post-comment
+{
+    padding: 1em 0;
+}
+
+.news-post-comment:not(:last-child)
+{
+    border-bottom: 1px solid $border-color;
 }

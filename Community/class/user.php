@@ -117,6 +117,7 @@ class User
            
            if ($statement->rowCount() > 0)
            {
+                $this->id = $userRow['id'];
                 $this->username = $userRow['username'];
                 $this->email = $userRow['email'];
            }
