@@ -11,6 +11,8 @@ $todo_list = new ToDoList($database_connection);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ToDo List</title>
     <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+    
+    <script src="ToDoList.js" defer></script>
 </head>
 <body>
 
@@ -56,7 +58,7 @@ $todo_list = new ToDoList($database_connection);
                     }
                     ?>
                 </div>
-                <div class="todo-showmore"><a href="javascript:void(0)">Show More</a></div>
+                <div class="todo-showmore"><a href="javascript:void(0)" class="show-more">Show More</a></div>
                 <div class="hidden">
                         <strong>Date Added:</strong> <?=$task->dateadded?>
                         <strong>Date Done:</strong> <?=$task->datedone?>
