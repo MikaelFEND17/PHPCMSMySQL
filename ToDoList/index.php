@@ -56,10 +56,10 @@ $todo_list = new ToDoList($database_connection);
                     }
                     ?>
                 </div>
-                <div>Show More</div>
+                <div class="todo-showmore"><a href="javascript:void(0)">Show More</a></div>
                 <div class="hidden">
-                    <strong>Date Added:</strong> <?=$task->dateadded?>
-                    <strong>Date Done:</strong> <?=$task->datedone?>
+                        <strong>Date Added:</strong> <?=$task->dateadded?>
+                        <strong>Date Done:</strong> <?=$task->datedone?>
                 </div>
             </div>
         <?php 

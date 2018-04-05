@@ -29,19 +29,38 @@ a
 
 .todo-item
 {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    border-bottom: 1px solid #000000;
 }
 
 .todo-task
 {
     width: 40%;
+    border-right: 1px solid #000000;
+    padding-left: 1em;
 }
 
 .todo-done
 {
+    display: flex;
+    justify-content: center;
     width: 10%;
+    border-right: 1px solid #000000;
+}
+
+.todo-showmore
+{
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    border-right: 1px solid #000000;
+}
+
+#todo-add
+{
+    padding: 1em;
 }
 
 .red
