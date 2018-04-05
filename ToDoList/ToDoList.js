@@ -4,6 +4,7 @@ class ToDoList
     {
         this.showMoreLinks = new Array();
         this.hiddenClasses = new Array();
+        this.eventHandlers = new Array();
     }
 
     Initialize()
@@ -14,10 +15,13 @@ class ToDoList
 
         for (let i = 0; i < this.showMoreLinks.length; i++)
         {
-            this.showMoreLinks[i].addEventListener("click", function handler(e) { 
+            let handler = e => {
                 this.UpdateShowMore(i);
                 e.currentTarget.removeEventListener(e.type, handler);
-            }.bind(this));
+            }
+            this.showMoreLinks[i].addEventListener( "click", handler );
+
+            this.eventHandlers.push(handler);
         }
 
 
@@ -25,7 +29,10 @@ class ToDoList
 
     UpdateShowMore(aID)
     {
-        console.log(aID);
+        for (let i = 0; i < this.showMoreLinks.length; i++)
+        {
+            this.showMoreLinks[i].removeEventListener( "click", this.eventHandlers[i] );
+        }
 
         this.hiddenClasses[aID].classList.remove("hidden");  
         this.showMoreLinks[aID].innerHTML = "Show Less";
@@ -35,14 +42,19 @@ class ToDoList
         
         this.showMoreLinks = document.getElementsByClassName("show-more");
         this.hiddenClasses = document.getElementsByClassName("hidden");
-    
-    
+
+        
+        this.eventHandlers = new Array();
+
         for (let i = 0; i < this.showMoreLinks.length; i++)
         {
-            this.showMoreLinks[i].addEventListener("click", function handler(e) { 
+            let handler = e => {
                 this.UpdateShowMore(i);
                 e.currentTarget.removeEventListener(e.type, handler);
-            }.bind(this));
+            }
+            this.showMoreLinks[i].addEventListener( "click", handler );
+
+            this.eventHandlers.push(handler);
         }
     }
 }
