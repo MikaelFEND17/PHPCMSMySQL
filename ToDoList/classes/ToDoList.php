@@ -1,5 +1,7 @@
 <?php
 
+require_once 'connect.php';
+
 class ToDoList
 {
     public $tasks = array();
@@ -10,32 +12,71 @@ class ToDoList
       $this->database = $database_connection;
     }
 
-    public function load_all_todos()
-    {
-
-    }
-
-    public function add_todo()
-    {
-
-    }
-
-    public function set_as_finished($id)
-    {
-
-    }
-
     public function get_tasks()
     {
-        return $tasks;
+        try
+        {
+            $statement = $this->database->prepare("SELECT * FROM todo");
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_CLASS, 'Task');
+  
+            foreach ($result as $task)
+            {
+                array_push($this->tasks, $task);
+            }
+
+            return $this->tasks;
+        }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
     }
+
+    public function add_task($task)
+    {
+        try
+        {
+            $statement = $this->database->prepare("INSERT INTO todo(task) 
+                                        VALUES(:task)");
+               
+            $statement->bindparam(":task", $task);
+            $statement->execute(); 
+
+            return $statement; 
+        }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function mark_as_finished($id)
+    {
+        try
+        {
+            $timestamp = date("Y-m-d H:i:s");
+            $statement = $this->database->prepare("UPDATE todo SET done=1, datedone=now() WHERE id=:id");
+            $statement->bindparam(":id", $id);
+            $statement->execute();
+
+            return $statement; 
+        }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
 }
 
 class Task
 {
     public $id;
     public $task;
-    public $completed;
+    public $done;
+    public $dateadded;
+    public $datedone;
 }
 
 ?>

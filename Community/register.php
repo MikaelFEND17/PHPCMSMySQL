@@ -80,7 +80,7 @@ if (isset($_POST['btn-register']))
                 }
            }
        }
-       catch(PDOException $e)
+       catch (PDOException $e)
        {
           echo $e->getMessage();
        }
