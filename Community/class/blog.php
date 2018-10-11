@@ -93,7 +93,7 @@ class Blog
         }
     }
 
-    public function get_comments_from_id($id)
+    public function get_comments_for_id($id)
     {
         try
         {
