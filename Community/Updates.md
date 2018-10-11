@@ -1,6 +1,0 @@
-# Updates
-
-### Version
-
-##### Added
-
